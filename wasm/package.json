@@ -1,0 +1,23 @@
+{
+  "name": "@apollosoftwarexyz/xxh3",
+  "description": "XXH3 in JavaScript using WebAssembly",
+  "repository": "https://github.com/apollosoftwarexyz/xxh3",
+  "version": "1.1.0",
+  "license": "MIT",
+  "type": "module",
+  "types": "./dist/xxh3.d.ts",
+  "exports": "./dist/xxh3.js",
+  "scripts": {
+    "build": "../scripts/build && vite build",
+    "test": "vitest",
+    "bench": "node tool/benchmark.js",
+    "dev": "../scripts/build && vite build --watch"
+  },
+  "devDependencies": {
+    "@types/node": "^22.8.6",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10",
+    "vitest": "^2.1.4"
+  }
+}

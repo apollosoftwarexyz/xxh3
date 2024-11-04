@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Resolve the directory of the script
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+TARGET_DIR=$(realpath "${DIR}/..")
+cd "$TARGET_DIR" || exit 1
+
+if [ ! -d "$TARGET_DIR/wasm/src" ]; then
+  echo "Missing $TARGET_DIR/wasm/src. Are you in the correct directory?"
+  exit 1
+fi
+
+dart compile wasm "$TARGET_DIR/lib/xxh3_js.dart" -o "$TARGET_DIR/wasm/src/xxh3_js/xxh3_js.wasm"
+wasm-opt "$TARGET_DIR/wasm/src/xxh3_js/xxh3_js.wasm" -all -o "$TARGET_DIR/wasm/src/xxh3_js/xxh3_js.wasm" --converge -O3

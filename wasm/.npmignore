@@ -1,0 +1,10 @@
+**/*
+
+!package.json
+!dist/**/*
+
+# Uncomment to include source.
+#!src/**/*
+#src/xxh3_js/*.unopt.*
+#src/xxh3_js/*.map
+#**/.DS_Store
